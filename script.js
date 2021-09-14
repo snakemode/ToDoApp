@@ -13,6 +13,8 @@ for (let item of items) {
 }
 
 function processKeyPress(e) {
+    addButton.disabled = e.target.value.trim() === "";
+
     if (e.key === "Enter") {
         addNewItem();
     }
