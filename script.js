@@ -28,5 +28,13 @@ function createElementForTask(item) {
 }
 
 function addNewItem() {
-    console.log("Add new item!");
+    const task = {
+        value: taskInput.value,
+        complete: false
+    };
+
+    items.push(task);
+
+    let newItem = createElementForTask(task);
+    tasks.appendChild(newItem);
 }
