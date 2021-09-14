@@ -9,7 +9,11 @@ const items = [
 ];
 
 for (let item of items) {
+    createElementForTask(item);
+}
 
+function createElementForTask(item) {
+    // Create new List items!
 }
 
 function addNewItem() {
