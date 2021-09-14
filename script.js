@@ -13,7 +13,8 @@ for (let item of items) {
 }
 
 function createElementForTask(item) {
-    // Create new List items!
+    const template = document.getElementById("taskTemplate");
+    const newListItem = template.content.cloneNode(true);
 }
 
 function addNewItem() {
