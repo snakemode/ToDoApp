@@ -13,7 +13,9 @@ for (let item of items) {
 }
 
 function processKeyPress(e) {
-
+    if (e.key === "Enter") {
+        addNewItem();
+    }
 }
 
 function createElementForTask(item) {
