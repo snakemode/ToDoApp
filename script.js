@@ -5,7 +5,8 @@ const tasks = document.getElementById("tasks");
 addButton.addEventListener('click', addNewItem);
 
 const items = [
-    { value: "my item", complete: false }
+    { value: "my item", complete: false },
+    { value: "my item 2", complete: false },
 ];
 
 for (let item of items) {
