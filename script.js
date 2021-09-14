@@ -4,7 +4,9 @@ const tasks = document.getElementById("tasks");
 
 addButton.addEventListener('click', addNewItem);
 
-const items = [];
+const items = [
+    { value: "my item", complete: false }
+];
 
 function addNewItem() {
     console.log("Add new item!");
