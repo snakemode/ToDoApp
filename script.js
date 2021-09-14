@@ -9,7 +9,8 @@ const items = [
 ];
 
 for (let item of items) {
-    createElementForTask(item);
+    const li = createElementForTask(item);
+    tasks.appendChild(li);
 }
 
 function createElementForTask(item) {
