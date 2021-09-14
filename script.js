@@ -8,6 +8,10 @@ const items = [
     { value: "my item", complete: false }
 ];
 
+for (let item of items) {
+
+}
+
 function addNewItem() {
     console.log("Add new item!");
 }
