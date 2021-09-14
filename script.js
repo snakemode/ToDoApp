@@ -3,12 +3,17 @@ const addButton = document.getElementById("add");
 const tasks = document.getElementById("tasks");
 
 addButton.addEventListener('click', addNewItem);
+taskInput.addEventListener('keyup', processKeyPress);
 
 const items = [];
 
 for (let item of items) {
     const li = createElementForTask(item);
     tasks.appendChild(li);
+}
+
+function processKeyPress(e) {
+
 }
 
 function createElementForTask(item) {
