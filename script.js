@@ -37,4 +37,7 @@ function addNewItem() {
 
     let newItem = createElementForTask(task);
     tasks.appendChild(newItem);
+
+    taskInput.value = "";
+    taskInput.focus();
 }
