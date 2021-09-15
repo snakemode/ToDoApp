@@ -24,9 +24,13 @@
     }
 
     async function getItems() {
-        const noItemsFound = "[]";
-        const itemsJSON = localStorage.getItem('items') || noItemsFound;
-        return JSON.parse(itemsJSON);
+        const request = await fetch('https://todo-api-ff.azurewebsites.net/api/todo', {
+            method: 'GET',
+            headers: { 'Content-Type': 'application/json' }
+        });
+
+        const itemsJson = (await request.text()) || "[]";
+        return JSON.parse(itemsJson);
     }
 
     async function saveItems() {
