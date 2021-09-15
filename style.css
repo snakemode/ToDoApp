@@ -9,3 +9,9 @@ html {
 *, *:before, *:after {
 box-sizing: inherit;
 }
+
+body {
+    max-width: 360px;
+    margin: 10px auto;
+    overflow: hidden;
+}
