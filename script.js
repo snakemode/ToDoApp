@@ -40,11 +40,13 @@ function createElementForTask(item) {
 
     checkbox.onchange = function (e) {
         item.complete = true;
+        saveItems();
     };
 
     deleteButton.onclick = function (e) {
         e.target.closest('li').remove();
         items.splice(items.indexOf(item), 1);
+        saveItems();
     };
 
     return newListItem;
@@ -57,6 +59,7 @@ function addNewItem() {
     };
 
     items.push(task);
+    saveItems();
 
     let newItem = createElementForTask(task);
     tasks.appendChild(newItem);
