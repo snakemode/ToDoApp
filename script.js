@@ -32,6 +32,8 @@ function createElementForTask(item) {
     checkbox.checked = item.complete;
 
     deleteButton.onclick = function (e) {
+        e.target.closest('li').remove();
+        items.splice(items.indexOf(item), 1);
     };
 
     return newListItem;
