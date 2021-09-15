@@ -74,3 +74,10 @@ h1 {
 .item-text {
     color: #6d748a;
 }
+
+ul, 
+li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
