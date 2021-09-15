@@ -1,73 +1,78 @@
-const taskInput = document.getElementById("new");
-const addButton = document.getElementById("add");
-const tasks = document.getElementById("tasks");
+(async function () {
 
-addButton.addEventListener('click', addNewItem);
-taskInput.addEventListener('keyup', processKeyPress);
+    const taskInput = document.getElementById("new");
+    const addButton = document.getElementById("add");
 
-const items = getItems();
+    const tasks = document.getElementById("tasks");
 
-for (let item of items) {
-    const li = createElementForTask(item);
-    tasks.appendChild(li);
-}
+    addButton.addEventListener('click', addNewItem);
+    taskInput.addEventListener('keyup', processKeyPress);
 
-function processKeyPress(e) {
-    addButton.disabled = e.target.value.trim() === "";
+    const items = getItems();
 
-    if (e.key === "Enter") {
-        addNewItem();
+    for (let item of items) {
+        const li = createElementForTask(item);
+        tasks.appendChild(li);
     }
-}
 
-function getItems() {
-    const noItemsFound = "[]";
-    const itemsJSON = localStorage.getItem('items') || noItemsFound;
-    return JSON.parse(itemsJSON);
-}
+    function processKeyPress(e) {
+        addButton.disabled = e.target.value.trim() === "";
 
-function saveItems() {
-    const data = JSON.stringify(items);
-    localStorage.setItem('items', data);
-}
+        if (e.key === "Enter") {
+            addNewItem();
+        }
+    }
 
-function createElementForTask(item) {
-    const template = document.getElementById("taskTemplate");
-    const newListItem = template.content.cloneNode(true);
+    function getItems() {
+        const noItemsFound = "[]";
+        const itemsJSON = localStorage.getItem('items') || noItemsFound;
+        return JSON.parse(itemsJSON);
+    }
 
-    const checkbox = newListItem.querySelector(".item-check");
-    const text = newListItem.querySelector(".item-text");
-    const deleteButton = newListItem.querySelector(".delete");
+    function saveItems() {
+        const data = JSON.stringify(items);
+        localStorage.setItem('items', data);
+    }
 
-    text.innerText = item.value;
-    checkbox.checked = item.complete;
+    function createElementForTask(item) {
+        const template = document.getElementById("taskTemplate");
+        const newListItem = template.content.cloneNode(true);
 
-    checkbox.onchange = function (e) {
-        item.complete = true;
+        const checkbox = newListItem.querySelector(".item-check");
+        const text = newListItem.querySelector(".item-text");
+        const deleteButton = newListItem.querySelector(".delete");
+
+        text.innerText = item.value;
+        checkbox.checked = item.complete;
+
+        checkbox.onchange = function (e) {
+            item.complete = true;
+            saveItems();
+        };
+
+        deleteButton.onclick = function (e) {
+            e.target.closest('li').remove();
+            items.splice(items.indexOf(item), 1);
+            saveItems();
+        };
+
+        return newListItem;
+    }
+
+    function addNewItem() {
+        const task = {
+            value: taskInput.value,
+            complete: false
+        };
+
+        items.push(task);
         saveItems();
-    };
 
-    deleteButton.onclick = function (e) {
-        e.target.closest('li').remove();
-        items.splice(items.indexOf(item), 1);
-        saveItems();
-    };
+        let newItem = createElementForTask(task);
+        tasks.appendChild(newItem);
 
-    return newListItem;
-}
+        taskInput.value = "";
+        taskInput.focus();
+    }
 
-function addNewItem() {
-    const task = {
-        value: taskInput.value,
-        complete: false
-    };
-
-    items.push(task);
-    saveItems();
-
-    let newItem = createElementForTask(task);
-    tasks.appendChild(newItem);
-
-    taskInput.value = "";
-    taskInput.focus();
-}
+}());
