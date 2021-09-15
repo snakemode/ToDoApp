@@ -96,6 +96,10 @@ h1 {
 }
 
 
+.item-check:checked + .item-text {
+    text-decoration: line-through;
+}
+
 ul, 
 li {
   margin: 0;
