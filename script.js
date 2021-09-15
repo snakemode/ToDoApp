@@ -31,6 +31,10 @@ function createElementForTask(item) {
     text.innerText = item.value;
     checkbox.checked = item.complete;
 
+    checkbox.onchange = function (e) {
+        item.complete = true;
+    };
+
     deleteButton.onclick = function (e) {
         e.target.closest('li').remove();
         items.splice(items.indexOf(item), 1);
