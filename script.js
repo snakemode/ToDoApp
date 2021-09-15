@@ -21,10 +21,14 @@ function processKeyPress(e) {
 }
 
 function getItems() {
-    return [];
+    const noItemsFound = "[]";
+    const itemsJSON = localStorage.getItem('items') || noItemsFound;
+    return JSON.parse(itemsJSON);
 }
 
 function saveItems() {
+    const data = JSON.stringify(items);
+    localStorage.setItem('items', data);
 }
 
 function createElementForTask(item) {
