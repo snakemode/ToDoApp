@@ -26,9 +26,13 @@ function createElementForTask(item) {
 
     const checkbox = newListItem.querySelector(".item-check");
     const text = newListItem.querySelector(".item-text");
+    const deleteButton = newListItem.querySelector(".delete");
 
     text.innerText = item.value;
     checkbox.checked = item.complete;
+
+    deleteButton.onclick = function (e) {
+    };
 
     return newListItem;
 }
