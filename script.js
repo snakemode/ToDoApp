@@ -5,7 +5,7 @@ const tasks = document.getElementById("tasks");
 addButton.addEventListener('click', addNewItem);
 taskInput.addEventListener('keyup', processKeyPress);
 
-const items = [];
+const items = getItems();
 
 for (let item of items) {
     const li = createElementForTask(item);
