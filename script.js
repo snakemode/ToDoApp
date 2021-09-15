@@ -20,6 +20,13 @@ function processKeyPress(e) {
     }
 }
 
+function getItems() {
+    return [];
+}
+
+function saveItems() {
+}
+
 function createElementForTask(item) {
     const template = document.getElementById("taskTemplate");
     const newListItem = template.content.cloneNode(true);
