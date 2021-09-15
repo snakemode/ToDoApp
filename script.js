@@ -35,7 +35,11 @@
 
     async function saveItems() {
         const data = JSON.stringify(items);
-        localStorage.setItem('items', data);
+        await fetch('https://todo-api-ff.azurewebsites.net/api/todo', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: data
+        });
     }
 
     function createElementForTask(item) {
