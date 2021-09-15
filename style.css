@@ -75,6 +75,27 @@ h1 {
     color: #6d748a;
 }
 
+.delete {
+    visibility: hidden;
+    width: 20px;
+    margin-left: auto;
+    padding: 0;
+    border: 0;
+    background: url(https://cdn.glitch.com/f961eba8-228f-46a7-a1bc-a4b0b7dc17e2%2Fbin.png?v=1621165175709) no-repeat right;
+    background-size: contain;
+    color: transparent;
+    cursor: pointer;
+}
+
+.delete:hover {
+    background-image: url(https://cdn.glitch.com/f961eba8-228f-46a7-a1bc-a4b0b7dc17e2%2Fbin2.png?v=1621165175742);
+}
+
+.item:hover .delete {
+    visibility: visible;
+}
+
+
 ul, 
 li {
   margin: 0;
