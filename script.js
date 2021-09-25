@@ -15,10 +15,10 @@
         tasks.appendChild(li);
     }
 
-    function processKeyPress(e) {
-        addButton.disabled = e.target.value.trim() === "";
+    function processKeyPress(event) {
+        addButton.disabled = event.target.value.trim() === "";
 
-        if (e.key === "Enter") {
+        if (event.key === "Enter") {
             addNewItem();
         }
     }
@@ -53,13 +53,13 @@
         text.innerText = item.value;
         checkbox.checked = item.complete;
 
-        checkbox.onchange = function (e) {
+        checkbox.onchange = function (event) {
             item.complete = true;
             saveItems();
         };
 
-        deleteButton.onclick = function (e) {
-            e.target.closest('li').remove();
+        deleteButton.onclick = function (event) {
+            event.target.closest('li').remove();
             items.splice(items.indexOf(item), 1);
             saveItems();
         };
