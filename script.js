@@ -54,7 +54,7 @@
         checkbox.checked = item.complete;
 
         checkbox.onchange = function (event) {
-            item.complete = true;
+            item.complete = event.target.checked;
             saveItems();
         };
 
